@@ -1,5 +1,6 @@
 <div class="contents row">
   <div class="content_post" >
+  <% if user_signed_in? && current_user.id == @tweet.user_id %>
   <%= image_tag @tweet.image, class: 'tweet-image' if @tweet.image.attached? %>
     <div class="more">
       <span><%= image_tag 'arrow_top.png' %></span>
@@ -12,6 +13,7 @@
         </li>
       </ul>
     </div>
+    <% end %>
     <p><%= @tweet.text %></p>
     <span class="name">
       <a href="/users/<%= @tweet.user.id %>">
